@@ -4,6 +4,7 @@ import { NavLink } from 'react-router';
 const Navber = () => {
     return (
         <div className="bg-yellow-300 py-3 sm:py-4">
+             {/* <div className="bg-yellow-200/40 py-3 sm:py-4 backdrop-blur-sm"> */}
             <div className="max-w-6xl mx-auto flex items-center justify-between px-2 sm:px-0">
 
                 {/* Main Rounded Container */}
@@ -27,7 +28,7 @@ const Navber = () => {
 
                         <NavLink to="home">
                             <h1 className="text-base sm:text-xl font-bold text-gray-800 whitespace-nowrap">
-                                🥗 FoodNest
+                                🥗 Food<span className="text-yellow-600">Nest</span>
                             </h1>
                         </NavLink>
 
@@ -43,14 +44,15 @@ const Navber = () => {
 
                         <div className="sm:flex items-center gap-2">
                             <NavLink to="/login">
-                                <button className="cursor-pointer px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 text-sm hover:bg-gray-200 transition">
-                                    Log in
+                                <button className="cursor-pointer px-4 py-2 rounded-full bg-black text-white text-sm font-semibold hover:bg-gray-800 transition">
+                                    Login
                                 </button>
                             </NavLink>
 
                             <NavLink to="/signup">
-                                <button className="cursor-pointer px-4 py-1.5 rounded-full bg-black text-white text-sm hover:bg-gray-800 transition">
-                                    Sign up
+
+                                <button className="cursor-pointer bg-yellow-400 rounded-full text-black px-4 py-2 text-sm font-medium hover:bg-yellow-300 transition">
+                                    Subscribe
                                 </button>
                             </NavLink>
                         </div>
@@ -66,7 +68,7 @@ const Navber = () => {
                             </div>
                             <ul
                                 tabIndex={-1}
-                                className="menu menu-sm dropdown-content bg-white rounded-2xl z-1 mt-3 w-52 p-2 shadow-lg">
+                                className="menu menu-sm dropdown-content bg-white rounded-2xl z-50 mt-3 w-52 p-2 shadow-lg">
                                 <li><a>👤 Profile</a></li>
                                 <li><a>➕ Add Food</a></li>
                                 <li><a>📦 Manage My Foods</a></li>
