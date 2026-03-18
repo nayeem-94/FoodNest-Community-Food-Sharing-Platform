@@ -3,6 +3,7 @@ import Header from '../components/Header/Header';
 import { Outlet } from 'react-router';
 
 import bg from "../assets/bg-pasta2.jpg"
+import Footer from '../components/Footer/Footer';
 
 const Homelayout = () => {
     return (
@@ -12,6 +13,7 @@ const Homelayout = () => {
             </div>
             
             <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };
