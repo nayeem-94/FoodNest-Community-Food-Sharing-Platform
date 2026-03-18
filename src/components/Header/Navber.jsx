@@ -3,18 +3,35 @@ import { NavLink } from 'react-router';
 
 const Navber = () => {
     return (
-        <div className="bg-yellow-300 py-4">
-            <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <div className="bg-yellow-300 py-3 sm:py-4">
+            <div className="max-w-6xl mx-auto flex items-center justify-between px-2 sm:px-0">
 
                 {/* Main Rounded Container */}
-                <div className="flex items-center justify-between w-full bg-white rounded-full px-6 py-3 shadow-md">
+                <div className="flex items-center justify-between w-full bg-white rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-md">
 
                     {/* Left: Logo + Menu */}
-                    <div className="flex items-center gap-8">
-                        <h1 className="text-xl mr-10 font-bold text-gray-800">
-                            🥗 FoodNest
-                        </h1>
+                    <div className="flex items-center gap-3 sm:gap-8">
 
+                        {/* Mobile Menu */}
+                        <div className="md:hidden dropdown">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle text-lg">
+                                ☰
+                            </div>
+                            <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow bg-white rounded-2xl w-44 space-y-1">
+                                <li><NavLink to="home">🏠 Home</NavLink></li>
+                                <li><NavLink to="available-foods">🍽️ Available Foods</NavLink></li>
+                            </ul>
+                        </div>
+
+                        <NavLink to="home">
+                            <h1 className="text-base sm:text-xl font-bold text-gray-800 whitespace-nowrap">
+                                🥗 FoodNest
+                            </h1>
+                        </NavLink>
+
+                        {/* Desktop Menu */}
                         <ul className="hidden md:flex items-center gap-6 text-gray-600 text-sm">
                             <NavLink to="home" className="hover:text-black cursor-pointer">Home</NavLink>
                             <NavLink to="available-foods" className="hover:text-black cursor-pointer">Available Foods</NavLink>
@@ -22,25 +39,44 @@ const Navber = () => {
                     </div>
 
                     {/* Right: Buttons */}
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
 
-                        <NavLink to="/login">
-                            <button className="cursor-pointer px-4 py-1.5 rounded-full bg-gray-200 text-gray-700 text-sm hover:bg-gray-200 transition">
-                                Log in
-                            </button>
-                        </NavLink>
-                        <NavLink to="/signup">
-                            <button className="cursor-pointer px-5 py-1.5 rounded-full bg-black text-white text-sm hover:bg-gray-800 transition">
-                                Sign up free
-                            </button>
-                        </NavLink>
+                        <div className="sm:flex items-center gap-2">
+                            <NavLink to="/login">
+                                <button className="cursor-pointer px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 text-sm hover:bg-gray-200 transition">
+                                    Log in
+                                </button>
+                            </NavLink>
+
+                            <NavLink to="/signup">
+                                <button className="cursor-pointer px-4 py-1.5 rounded-full bg-black text-white text-sm hover:bg-gray-800 transition">
+                                    Sign up
+                                </button>
+                            </NavLink>
+                        </div>
+
+                        {/* Profile always visible */}
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-8 sm:w-10 rounded-full ring ring-gray-200">
+                                    <img
+                                        alt="profile"
+                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                </div>
+                            </div>
+                            <ul
+                                tabIndex={-1}
+                                className="menu menu-sm dropdown-content bg-white rounded-2xl z-1 mt-3 w-52 p-2 shadow-lg">
+                                <li><a>👤 Profile</a></li>
+                                <li><a>➕ Add Food</a></li>
+                                <li><a>📦 Manage My Foods</a></li>
+                                <li><a>📩 Requests</a></li>
+                                <li><a>🚪 Logout</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                {/* Heart container */}
-                <div className="ml-4 bg-white p-3 rounded-full shadow-md cursor-pointer hover:scale-105 transition">
-                    ❤️
-                </div>
             </div>
         </div>
     );
