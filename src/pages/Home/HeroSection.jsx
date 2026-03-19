@@ -16,7 +16,7 @@ const HeroSection = () => {
                     {/* Left: Text */}
                     <div className="flex-1 text-center lg:text-left space-y-6">
                         <div className="inline-flex items-center gap-2 bg-yellow-200 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold uppercase">
-                            Reduce waste · Feed community and nayeem
+                            Reduce waste · Feed community
                         </div>
 
                         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black">
