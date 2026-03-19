@@ -5,6 +5,7 @@ import { Outlet } from 'react-router';
 import Footer from '../components/Footer/Footer';
 
 const Homelayout = () => {
+
     return (
         <div className='container mx-auto '>
             <Header></Header>
