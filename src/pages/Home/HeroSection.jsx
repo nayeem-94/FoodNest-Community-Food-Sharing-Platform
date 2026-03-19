@@ -1,5 +1,6 @@
 import React from 'react';
 import heroImage from '../../assets/bg-pasta.jpg'; // Replace with your own image
+import { NavLink } from 'react-router';
 
 const HeroSection = () => {
     return (
@@ -27,12 +28,17 @@ const HeroSection = () => {
                         </p>
 
                         <div className="flex justify-center lg:justify-start gap-4 mt-4">
-                            <button className="px-6 py-3 bg-black text-white rounded-full font-semibold hover:bg-gray-800 transition transform hover:-translate-y-1 hover:scale-105">
-                                Search Food →
-                            </button>
-                            <button className="px-6 py-3 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition transform hover:-translate-y-1 hover:scale-105">
-                                Browse All
-                            </button>
+                            <NavLink to="/available-foods">
+                                <button className="px-6 py-3 cursor-pointer bg-black text-white rounded-full font-semibold hover:bg-gray-800 transition transform hover:-translate-y-1 hover:scale-105">
+                                    Search Food →
+                                </button>
+                            </NavLink>
+
+                            <NavLink to="/available-foods">
+                                <button className="px-6 py-3 cursor-pointer bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition transform hover:-translate-y-1 hover:scale-105">
+                                    Browse All
+                                </button>
+                            </NavLink>
                         </div>
 
                         {/* Simple stats */}

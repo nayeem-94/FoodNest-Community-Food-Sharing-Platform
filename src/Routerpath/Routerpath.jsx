@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router";
-import { Children } from "react";
 import Homelayout from "../Layout/Homelayout";
 import Home from "../pages/Home/Home";
 import Availablefoods from "../pages/Availablefoods/Availablefoods";
 import Login from "../pages/Auth/Login";
 import Signup from "../pages/Auth/Signup";
+import ErrorPage from "./ErrorPage";
 
 const Routerpath = createBrowserRouter([
     {
@@ -18,6 +18,7 @@ const Routerpath = createBrowserRouter([
             {
                 path: "home",
                 element: <Home></Home>,
+
             },
             {
                 path: "available-foods",
@@ -34,8 +35,10 @@ const Routerpath = createBrowserRouter([
 
             },
             {
-                
-            }
+                path: "*", // Catch-all for any undefined routes
+                element: <ErrorPage></ErrorPage>,
+            },
+
         ]
 
     }
