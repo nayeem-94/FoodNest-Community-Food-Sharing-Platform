@@ -3,7 +3,6 @@ import Homelayout from "../Layout/Homelayout";
 import Home from "../pages/Home/Home";
 import Availablefoods from "../pages/Availablefoods/Availablefoods";
 import Login from "../pages/AcessSetup/Login/Login";
-import Signup from "../pages/AcessSetup/Login/Signup";
 import ErrorPage from "./ErrorPage";
 import Register from "../pages/AcessSetup/Register/Register";
 

@@ -20,7 +20,7 @@ const Navber = () => {
                             </div>
                             <ul
                                 tabIndex={0}
-                                className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow bg-white rounded-2xl w-44 space-y-1">
+                                className="menu menu-sm dropdown-content mt-3 z-[50] p-3 shadow bg-white rounded-2xl w-44 space-y-1">
                                 <li><NavLink to="home">🏠 Home</NavLink></li>
                                 <li><NavLink to="available-foods">🍽️ Available Foods</NavLink></li>
                             </ul>
@@ -50,7 +50,6 @@ const Navber = () => {
                             </NavLink>
 
                             <NavLink to="/register">
-
                                 <button className="cursor-pointer bg-yellow-400 rounded-full text-black px-4 py-2 text-sm font-medium hover:bg-yellow-300 transition">
                                     Sign Up
                                 </button>
