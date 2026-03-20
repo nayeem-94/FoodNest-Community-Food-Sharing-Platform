@@ -49,7 +49,7 @@ const Navber = () => {
                                 </button>
                             </NavLink>
 
-                            <NavLink to="/signup">
+                            <NavLink to="/register">
 
                                 <button className="cursor-pointer bg-yellow-400 rounded-full text-black px-4 py-2 text-sm font-medium hover:bg-yellow-300 transition">
                                     Sign Up

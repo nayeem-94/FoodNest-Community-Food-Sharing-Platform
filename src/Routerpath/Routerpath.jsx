@@ -2,9 +2,10 @@ import { createBrowserRouter } from "react-router";
 import Homelayout from "../Layout/Homelayout";
 import Home from "../pages/Home/Home";
 import Availablefoods from "../pages/Availablefoods/Availablefoods";
-import Login from "../pages/Auth/Login";
-import Signup from "../pages/Auth/Signup";
+import Login from "../pages/AcessSetup/Login/Login";
+import Signup from "../pages/AcessSetup/Login/Signup";
 import ErrorPage from "./ErrorPage";
+import Register from "../pages/AcessSetup/Register/Register";
 
 const Routerpath = createBrowserRouter([
     {
@@ -30,8 +31,10 @@ const Routerpath = createBrowserRouter([
                 element: <Login></Login>,
             },
             {
-                path: "signup",
-                element: <Signup></Signup>,
+                path: "register",
+                element: <Register></Register>,
+            },
+            {
 
             },
             {
