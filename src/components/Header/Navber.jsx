@@ -28,7 +28,7 @@ const Navber = () => {
 
                         <NavLink to="home">
                             <h1 className="text-base sm:text-xl font-bold text-gray-800 whitespace-nowrap">
-                                🥗 Food<span className="text-yellow-600">Nest</span>
+                                🥗 Food<span className="text-amber-500">Nest</span>
                             </h1>
                         </NavLink>
 
@@ -50,7 +50,7 @@ const Navber = () => {
                             </NavLink>
 
                             <NavLink to="/register">
-                                <button className="cursor-pointer bg-yellow-400 rounded-full text-black px-4 py-2 text-sm font-medium hover:bg-yellow-300 transition">
+                                <button className="cursor-pointer bg-amber-400 rounded-full text-black px-4 py-2 text-sm font-medium hover:bg-yellow-300 transition">
                                     Sign Up
                                 </button>
                             </NavLink>

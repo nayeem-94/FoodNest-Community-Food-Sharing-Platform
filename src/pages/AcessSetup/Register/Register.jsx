@@ -16,7 +16,7 @@ const Register = () => {
                     {/* Logo */}
                     <div className='flex items-center justify-center text-2xl mb-6'>
                         <h1 className="text-3xl font-bold text-gray-800 whitespace-nowrap">
-                            🥗Food<span className="text-yellow-600">Nest</span>
+                            🥗Food<span className="text-amber-500">Nest</span>
                         </h1>
                     </div>
 

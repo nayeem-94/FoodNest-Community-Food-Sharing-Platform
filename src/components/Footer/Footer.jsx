@@ -9,7 +9,7 @@ const Footer = () => {
 
                 {/* Logo + Description */}
                 <div>
-                    <h2 className="text-xl font-bold text-white mb-3">🥗 Food<span className="text-yellow-600">Nest</span></h2>
+                    <h2 className="text-xl font-bold text-white mb-3">🥗 Food<span className="text-amber-400">Nest</span></h2>
                     <p className="text-sm leading-relaxed">
                         Share food, spread happiness. Reduce waste and help your community with FoodNest.
                     </p>
