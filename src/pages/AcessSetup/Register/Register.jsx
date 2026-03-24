@@ -1,8 +1,100 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router';
 import Form from './Form';
+import { AuthContext } from '../../Provider/Authprovider';
+import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
+
 
 const Register = () => {
+
+    const { createUser, updateUser } = useContext(AuthContext);
+    const [nameError, setNameError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+    const [showPassword, setShowPassword] = useState(false);   // password toggle state
+    const navigate = useNavigate();
+
+    const handelRegister = (e) => {
+
+
+        setNameError("");
+        setPasswordError("");
+
+
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const photourl = form.photourl.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        // name validation
+        if (name.length < 5) {
+            setNameError("Name should be more than 5 characters");
+            return;
+        } else {
+            setNameError("");
+        }
+
+        // // password validation
+        if (!/[A-Z]/.test(password)) {
+            setPasswordError("Password must contain at least one uppercase letter");
+            return;
+        }
+        if (!/[a-z]/.test(password)) {
+            setPasswordError("Password must contain at least one lowercase letter");
+            return;
+        }
+        if (password.length < 6) {
+            setPasswordError("Password must be at least 6 characters long");
+            return;
+        } else {
+            setPasswordError("");
+        }
+
+
+
+        // USER CREATION by email and password 
+        createUser(email, password)
+            .then((result) => {
+                const createdUser = result.user;
+                form.reset();
+
+                Swal.fire({
+                    title: "Welcome to FoodNest 🍽️",
+                    text: "Account created successfully 🎉",
+                    icon: "success",
+                    background: "#fff",
+                    color: "#333",
+                    confirmButtonColor: "#f59e0b"
+                });
+
+                updateProfile(createdUser, {
+                    displayName: name,
+                    photoURL: photourl
+                })
+                    .then(() => {
+
+                        navigate("/home");
+                    })
+                    .catch((error) => {
+                        console.error("Error updating profile:", error);
+                    });
+
+            })
+            .catch((error) => {
+                Swal.fire({
+                    title: "Error!",
+                    text: error.message,
+                    icon: "error",
+                    confirmButtonText: "Try again"
+                });
+
+                e.target.reset();
+            });
+    };
+
+
     return (
         <section className="relative overflow-hidden ">
             {/* Floating blobs */}
@@ -25,8 +117,12 @@ const Register = () => {
                     <p className="text-zinc-500 text-sm mb-7"> Join the community. Share food, reduce waste.  </p>
 
                     {/* Form */}
-                    <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
-                        <Form></Form>
+                    <form onSubmit={handelRegister} className="space-y-5">
+                        <Form>
+
+                        </Form>
+                        {nameError && <p className="text-red-400 text-sm">{nameError}</p>}
+                        {passwordError && <p className="text-red-400 text-sm">{passwordError}</p>}
                     </form>
 
                     {/* Divider */}

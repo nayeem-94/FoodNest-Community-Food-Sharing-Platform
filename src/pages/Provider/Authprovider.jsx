@@ -14,7 +14,6 @@ import {
 
 export const AuthContext = createContext();
 
-
 const googleProvider = new GoogleAuthProvider();
 const auth = getAuth(app);
 
