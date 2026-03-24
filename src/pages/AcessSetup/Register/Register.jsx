@@ -11,7 +11,6 @@ const Register = () => {
     const { createUser, googleLogin } = useContext(AuthContext);
     const [nameError, setNameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-    const [showPassword, setShowPassword] = useState(false);   // password toggle state
     const navigate = useNavigate();
 
     const handelRegister = (e) => {

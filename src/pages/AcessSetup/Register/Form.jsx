@@ -52,7 +52,7 @@ const Form = () => {
             </div>
 
             {/* Password */}
-            <div className="relative">
+            <div className="">
                 <label className="block text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">
                     Password
                 </label>
