@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 const Register = () => {
 
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, googleLogin } = useContext(AuthContext);
     const [nameError, setNameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [showPassword, setShowPassword] = useState(false);   // password toggle state
@@ -61,7 +61,7 @@ const Register = () => {
                 form.reset();
 
                 Swal.fire({
-                    title: "Welcome to FoodNest 🍽️",
+                    title: "Welcome to FoodNest 🥗",
                     text: "Account created successfully 🎉",
                     icon: "success",
                     background: "#fff",
@@ -83,14 +83,55 @@ const Register = () => {
 
             })
             .catch((error) => {
+
+                let message = "Something went wrong!";
+
+                if (error.message.includes("email-already-in-use")) {
+                    message = "Email already exists!";
+                }
+
                 Swal.fire({
                     title: "Error!",
-                    text: error.message,
-                    icon: "error",
-                    confirmButtonText: "Try again"
+                    text: message,
+                    icon: "error"
                 });
 
                 e.target.reset();
+            });
+    };
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then((result) => {
+                const user = result.user;
+
+                console.log(user);
+
+                Swal.fire({
+                    title: "Welcome to FoodNest 🥗",
+                    text: "Account created successfully 🎉",
+                    icon: "success",
+                    background: "#fff",
+                    color: "#333",
+                    confirmButtonColor: "#f59e0b"
+                })
+                    .then(() => {
+                        navigate("/");
+                    });
+
+            })
+            .catch((error) => {
+                let message = "Something went wrong!";
+
+                if (error.message.includes("email-already-in-use")) {
+                    message = "Email already exists!";
+                }
+
+                Swal.fire({
+                    title: "Error!",
+                    text: message,
+                    icon: "error"
+                });
             });
     };
 
@@ -133,7 +174,7 @@ const Register = () => {
                     </div>
 
                     {/* Google Button */}
-                    <button className="btn  w-full rounded-lg bg-white text-black border-[#e5e5e5]  transition-all duration-300 hover:-translate-y-0.5 active:scale-95">
+                    <button onClick={handleGoogleLogin} className="btn  w-full rounded-lg bg-white text-black border-[#e5e5e5]  transition-all duration-300 hover:-translate-y-0.5 active:scale-95">
                         <svg aria-label="Google logo" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
                         Continue with Google
                     </button>
