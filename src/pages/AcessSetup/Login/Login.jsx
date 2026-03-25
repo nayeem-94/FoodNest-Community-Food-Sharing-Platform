@@ -70,11 +70,10 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
 
-                console.log(user);
 
                 Swal.fire({
                     title: "Welcome to FoodNest 🥗",
-                    text: "Account Logged in successfully 🎉",
+                    text: `Account Logged in successfully 🎉 Hello ${user.displayName}!`,
                     icon: "success",
                     background: "#fff",
                     color: "#333",
@@ -88,7 +87,7 @@ const Login = () => {
             })
             .catch((error) => {
                 setLoading(false);
-                
+
                 let message = "Login failed!";
 
                 if (error.code === "auth/user-not-found") {

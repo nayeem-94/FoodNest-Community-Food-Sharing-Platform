@@ -12,7 +12,6 @@ const Navber = () => {
     const Navigate = useNavigate();
 
 
-
     const handleLogout = () => {
 
         setLoggingOut(true);
@@ -39,9 +38,9 @@ const Navber = () => {
 
                             setTimeout(() => {
                                 setLoggingOut(false); // hide spinner
-                                navigate("/home"); // redirect to home after logout
+                                Navigate("/login"); // redirect to login after logout
                             }, 1000);
-                            
+
                         });
                     })
                     .catch((error) => {
@@ -53,8 +52,11 @@ const Navber = () => {
                         });
                     });
             }
+            else {
+                setLoggingOut(false);
+            }
         });
-    };
+    }
 
     if (loggingOut) {
         return (
@@ -116,7 +118,8 @@ const Navber = () => {
                                             <div className="w-8 sm:w-10 rounded-full ring ring-gray-200">
                                                 <img
                                                     alt="profile"
-                                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                                    src={user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                                                />
                                             </div>
                                         </div>
                                         <ul
