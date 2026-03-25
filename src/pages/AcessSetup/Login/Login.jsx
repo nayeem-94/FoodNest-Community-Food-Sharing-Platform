@@ -8,6 +8,8 @@ import { Eye, EyeOff } from "lucide-react";
 
 const Login = () => {
 
+
+
     const { signIn, googleLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState("");
@@ -28,7 +30,7 @@ const Login = () => {
         signIn(email, password)
             .then((result) => {
                 const user = result.user;
-                // console.log("successfully logged in:");
+                form.reset();
 
                 Swal.fire({
                     title: "Welcome back 🎉",
@@ -58,6 +60,7 @@ const Login = () => {
                     icon: "error"
                 });
             });
+        e.target.reset();
     };
 
     const handleGoogleLogin = () => {

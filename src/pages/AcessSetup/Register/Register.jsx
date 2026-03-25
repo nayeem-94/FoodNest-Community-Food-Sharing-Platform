@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 const Register = () => {
 
-    const { createUser, googleLogin } = useContext(AuthContext);
+    const { createUser, googleLogin, setLoading } = useContext(AuthContext);
     const [nameError, setNameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const navigate = useNavigate();
@@ -68,13 +68,14 @@ const Register = () => {
                     confirmButtonColor: "#f59e0b"
                 });
 
+
                 updateProfile(createdUser, {
                     displayName: name,
                     photoURL: photourl
                 })
                     .then(() => {
-
                         navigate("/home");
+
                     })
                     .catch((error) => {
                         console.error("Error updating profile:", error);
@@ -115,6 +116,7 @@ const Register = () => {
                     confirmButtonColor: "#f59e0b"
                 })
                     .then(() => {
+                        setLoading(false);
                         navigate("/");
                     });
 
