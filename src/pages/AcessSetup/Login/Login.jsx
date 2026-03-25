@@ -10,7 +10,7 @@ const Login = () => {
 
 
 
-    const { signIn, googleLogin } = useContext(AuthContext);
+    const { signIn, googleLogin , setLoading} = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState("");
 
@@ -37,11 +37,13 @@ const Login = () => {
                     text: "Login successful!",
                     icon: "success"
                 }).then(() => {
+                    setLoading(false);
                     navigate("/");
                 });
 
             })
             .catch((error) => {
+                setLoading(false);
                 let message = "Login failed!";
 
                 if (error.code === "auth/user-not-found") {
@@ -79,11 +81,14 @@ const Login = () => {
                     confirmButtonColor: "#f59e0b"
                 })
                     .then(() => {
+                        setLoading(false);
                         navigate("/");
                     });
 
             })
             .catch((error) => {
+                setLoading(false);
+                
                 let message = "Login failed!";
 
                 if (error.code === "auth/user-not-found") {

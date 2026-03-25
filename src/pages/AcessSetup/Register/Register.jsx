@@ -68,7 +68,7 @@ const Register = () => {
                     confirmButtonColor: "#f59e0b"
                 });
 
-
+                setLoading(false);
                 updateProfile(createdUser, {
                     displayName: name,
                     photoURL: photourl
@@ -83,6 +83,7 @@ const Register = () => {
 
             })
             .catch((error) => {
+                setLoading(false);
 
                 let message = "Something went wrong!";
 
@@ -105,7 +106,8 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
 
-                console.log(user);
+                // console.log(user);
+                setLoading(false);
 
                 Swal.fire({
                     title: "Welcome to FoodNest 🥗",
@@ -116,12 +118,13 @@ const Register = () => {
                     confirmButtonColor: "#f59e0b"
                 })
                     .then(() => {
-                        setLoading(false);
                         navigate("/");
                     });
 
             })
             .catch((error) => {
+                setLoading(false);
+
                 let message = "Something went wrong!";
 
                 if (error.message.includes("email-already-in-use")) {
