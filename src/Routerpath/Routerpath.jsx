@@ -5,6 +5,8 @@ import Availablefoods from "../pages/Availablefoods/Availablefoods";
 import Login from "../pages/AcessSetup/Login/Login";
 import ErrorPage from "./ErrorPage";
 import Register from "../pages/AcessSetup/Register/Register";
+import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
+import Profile from "../pages/Dashoard/Profile/Profile";
 
 const Routerpath = createBrowserRouter([
     {
@@ -34,6 +36,11 @@ const Routerpath = createBrowserRouter([
                 element: <Register></Register>,
             },
             {
+                path: "profile",
+                element:
+                    <PrivateRoute>
+                        <Profile></Profile>
+                    </PrivateRoute>
 
             },
             {

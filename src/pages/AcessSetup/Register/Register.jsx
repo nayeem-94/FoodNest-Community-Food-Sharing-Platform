@@ -71,7 +71,7 @@ const Register = () => {
                 setLoading(false);
                 updateProfile(createdUser, {
                     displayName: name,
-                    photoURL: photourl
+                    photoURL: photourl,
                 })
                     .then(() => {
                         navigate("/home");

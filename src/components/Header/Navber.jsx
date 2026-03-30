@@ -119,13 +119,17 @@ const Navber = () => {
                                                 <img
                                                     alt="profile"
                                                     src={user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                                                    onError={(e) => {
+                                                        e.target.src = "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp";
+                                                    }}
                                                 />
                                             </div>
                                         </div>
                                         <ul
                                             tabIndex={-1}
                                             className="menu menu-sm dropdown-content bg-white rounded-2xl z-50 mt-3 w-52 p-2 shadow-lg">
-                                            <li><a>👤 Profile</a></li>
+
+                                            <NavLink to="/profile"><li><a>👤 Profile</a></li></NavLink>
                                             <li><a>➕ Add Food</a></li>
                                             <li><a>📦 Manage My Foods</a></li>
                                             <li><a>📩 Requests</a></li>
