@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Provider/Authprovider';
 import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
@@ -10,11 +10,17 @@ const Login = () => {
 
 
 
-    const { signIn, googleLogin , setLoading} = useContext(AuthContext);
+    const { signIn, googleLogin , setLoading , user} = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState("");
 
     const [showPassword, setShowPassword] = useState(false);   // password toggle state
+
+    useEffect(() => {
+        if (user) {
+            navigate("/");
+        }
+    }, [user, navigate]);
 
 
     const handleLogin = (e) => {

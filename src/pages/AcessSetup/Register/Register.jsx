@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import Form from './Form';
 import { AuthContext } from '../../Provider/Authprovider';
@@ -8,10 +8,16 @@ import Swal from 'sweetalert2';
 
 const Register = () => {
 
-    const { createUser, googleLogin, setLoading } = useContext(AuthContext);
+    const { createUser, googleLogin, setLoading, user } = useContext(AuthContext);
     const [nameError, setNameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) {
+            navigate("/");
+        }
+    }, [user, navigate]);
 
     const handelRegister = (e) => {
 
