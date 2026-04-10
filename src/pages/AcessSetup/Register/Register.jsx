@@ -65,6 +65,8 @@ const Register = () => {
                 const createdUser = result.user;
                 form.reset();
 
+                
+
                 Swal.fire({
                     title: "Welcome to FoodNest 🥗",
                     text: "Account created successfully 🎉",
@@ -105,6 +107,7 @@ const Register = () => {
 
                 e.target.reset();
             });
+           
     };
 
     const handleGoogleLogin = () => {

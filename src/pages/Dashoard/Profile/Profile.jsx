@@ -8,7 +8,6 @@ const Profile = () => {
     const [bio, setBio] = React.useState(
         "Passionate about sharing food 🍲 and reducing waste. I love connecting with people and building a strong community through FoodNest."
     );
-    const [isEditing, setIsEditing] = React.useState(false);
 
 
     const handleEditBio = () => {
@@ -55,7 +54,7 @@ const Profile = () => {
                 <div className="flex flex-col items-center text-center">
                     <div className="relative group">
                         <img
-                            src={user?.photoURL || "https://i.ibb.co/4pDNDk1/avatar.png"}
+                            src={user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
                             alt="Profile"
                             className="w-40 h-40 rounded-full border-4 border-white shadow-xl group-hover:scale-105 transition duration-300"
                         />

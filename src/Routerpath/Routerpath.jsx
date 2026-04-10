@@ -7,6 +7,7 @@ import ErrorPage from "./ErrorPage";
 import Register from "../pages/AcessSetup/Register/Register";
 import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
 import Profile from "../pages/Dashoard/Profile/Profile";
+import AddFood from "../pages/Dashoard/AddFood/AddFood";
 
 const Routerpath = createBrowserRouter([
     {
@@ -41,6 +42,14 @@ const Routerpath = createBrowserRouter([
                     <PrivateRoute>
                         <Profile></Profile>
                     </PrivateRoute>
+
+            },
+            {
+                path : "addfood",
+                element:
+                <PrivateRoute>
+                    <AddFood></AddFood>
+                </PrivateRoute>
 
             },
             {

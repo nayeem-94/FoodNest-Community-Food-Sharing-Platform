@@ -113,7 +113,7 @@ const Navber = () => {
                                         Logout
                                     </button> */}
                                     <NavLink to="/profile">
-                                        <button  className="cursor-pointer bg-yellow-300 rounded-full text-black px-4 py-2 text-sm font-medium hover:bg-yellow-400 transition">
+                                        <button className="cursor-pointer bg-yellow-300 rounded-full text-black px-4 py-2 text-sm font-medium hover:bg-yellow-400 transition">
                                             Profile
                                         </button>
                                     </NavLink>
@@ -127,6 +127,7 @@ const Navber = () => {
                                                     src={user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
                                                     onError={(e) => {
                                                         e.target.src = "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp";
+                                                        user.photoURL = "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"; // prevent infinite loop if the URL is invalid
                                                     }}
                                                 />
                                             </div>
@@ -135,8 +136,8 @@ const Navber = () => {
                                             tabIndex={-1}
                                             className="menu menu-sm dropdown-content bg-white rounded-2xl z-50 mt-3 w-52 p-2 shadow-lg">
 
-                                            <NavLink to="/profile"><li><a>👤 Profile</a></li></NavLink>
-                                            <li><a>➕ Add Food</a></li>
+                                            <li> <NavLink to="/profile"><li>👤 Profile</li></NavLink> </li>
+                                            <li> <NavLink to="/addfood"><li>➕ Add Food</li></NavLink> </li>
                                             <li><a>📦 Manage My Foods</a></li>
                                             <li><a>📩 Requests</a></li>
                                             <button onClick={handleLogout}><li><a>🚪 Logout</a></li></button>
