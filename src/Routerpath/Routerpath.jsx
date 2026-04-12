@@ -8,6 +8,8 @@ import Register from "../pages/AcessSetup/Register/Register";
 import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
 import Profile from "../pages/Dashoard/Profile/Profile";
 import AddFood from "../pages/Dashoard/AddFood/AddFood";
+import MangeFood from "../pages/Dashoard/MangeFood/MangeFood";
+import RequestFood from "../pages/Dashoard/MangeFood/RequestFood";
 
 const Routerpath = createBrowserRouter([
     {
@@ -49,6 +51,21 @@ const Routerpath = createBrowserRouter([
                 element:
                 <PrivateRoute>
                     <AddFood></AddFood>
+                </PrivateRoute>
+
+            },
+            {
+                path : "manage-foods",
+                element:
+                <PrivateRoute>
+                    <MangeFood></MangeFood>
+                </PrivateRoute>
+            },
+            {
+                path : "food-requests",
+                element:
+                <PrivateRoute>
+                    <RequestFood></RequestFood>
                 </PrivateRoute>
 
             },

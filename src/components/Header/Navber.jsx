@@ -138,8 +138,8 @@ const Navber = () => {
 
                                             <li> <NavLink to="/profile"><li>👤 Profile</li></NavLink> </li>
                                             <li> <NavLink to="/addfood"><li>➕ Add Food</li></NavLink> </li>
-                                            <li><a>📦 Manage My Foods</a></li>
-                                            <li><a>📩 Requests</a></li>
+                                            <li> <NavLink to="/manage-foods"><li>📦 Manage My Foods</li></NavLink> </li>
+                                            <li> <NavLink to="/food-requests"><li>📩 Requests</li></NavLink> </li>
                                             <button onClick={handleLogout}><li><a>🚪 Logout</a></li></button>
                                         </ul>
                                     </div>

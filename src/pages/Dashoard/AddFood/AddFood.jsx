@@ -55,14 +55,18 @@ const AddFood = () => {
 
             const foodData = {
                 foodname: form.foodName.value,
-                quantity: form.foodQuantity.value,
+                quantity: Number(form.foodQuantity.value),
                 pickupLocation: form.pickupLocation.value,
                 expireDate: form.expireDate.value,
                 additionalNotes: form.additionalNotes.value,
-                image: imageUrl
+                image: imageUrl,
+                username: user.displayName,
+                userimage: user.photoURL
             };
 
-            await fetch("http://localhost:3000/foods", {
+            // await fetch("http://localhost:3000/foods",
+            await fetch("https://foodnest-community-food-sharing-platform-hoib.onrender.com/foods",
+            {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -71,8 +75,6 @@ const AddFood = () => {
             });
 
 
-            console.log(imageUrl);
-            console.log(foodData);
 
 
             if (!res.ok) throw new Error('Failed to save food');
