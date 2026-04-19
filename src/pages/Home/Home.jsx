@@ -2,6 +2,7 @@ import React from 'react';
 import HeroSection from './HeroSection';
 import TopFoodInfo from './TopFoodInfo';
 import TopFood from './TopFood';
+import Allbutton from './Allbutton';
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
             <HeroSection></HeroSection>
             <TopFoodInfo></TopFoodInfo>
             <TopFood></TopFood>
+            <Allbutton></Allbutton>
 
         </section>
     );

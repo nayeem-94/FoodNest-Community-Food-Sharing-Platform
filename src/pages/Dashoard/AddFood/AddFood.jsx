@@ -61,7 +61,8 @@ const AddFood = () => {
                 additionalNotes: form.additionalNotes.value,
                 image: imageUrl,
                 username: user.displayName,
-                userimage: user.photoURL
+                userimage: user.photoURL,
+                useremail: user.email,
             };
 
             // await fetch("http://localhost:3000/foods",
