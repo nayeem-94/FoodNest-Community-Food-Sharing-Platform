@@ -13,7 +13,8 @@ const FoodDetails = () => {
 
     useEffect(() => {
         // fetch(`http://localhost:3000/food/${id}`)
-        fetch(`http://foodnest-community-food-sharing-platform-hoib.onrender.com/food/${id}`)
+        fetch(`https://foodnest-community-food-sharing-platform-hoib.onrender.com/food/${id}`)
+
             .then((res) => res.json())
             .then((data) => setFood(data));
     }, [id]);
