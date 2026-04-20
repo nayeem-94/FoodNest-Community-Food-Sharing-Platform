@@ -9,8 +9,8 @@ const FeaturedFoods = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch("http://localhost:3000/featured-foods")
-        // fetch("https://foodnest-community-food-sharing-platform-hoib.onrender.com/featured-foods")
+        // fetch("http://localhost:3000/featured-foods")
+        fetch("https://foodnest-community-food-sharing-platform-hoib.onrender.com/featured-foods")
             .then((res) => res.json())
             .then((data) => {
                 setFoods(data);
@@ -55,8 +55,8 @@ const FeaturedFoods = () => {
         <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
             {
                 loading ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {Array(6).fill(0).map((_, i) => <SkeletonCard key={i} />)}
+                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[...Array(6)].map((_, index) => <SkeletonCard key={index} />)}
                     </div>
                 ) :
                     (
