@@ -10,6 +10,7 @@ import Profile from "../pages/Dashoard/Profile/Profile";
 import AddFood from "../pages/Dashoard/AddFood/AddFood";
 import MangeFood from "../pages/Dashoard/MangeFood/MangeFood";
 import RequestFood from "../pages/Dashoard/MangeFood/RequestFood";
+import FoodDetails from "../pages/AvailableFoods/FoodDetails";
 
 const Routerpath = createBrowserRouter([
     {
@@ -47,27 +48,34 @@ const Routerpath = createBrowserRouter([
 
             },
             {
-                path : "addfood",
+                path: "addfood",
                 element:
-                <PrivateRoute>
-                    <AddFood></AddFood>
-                </PrivateRoute>
+                    <PrivateRoute>
+                        <AddFood></AddFood>
+                    </PrivateRoute>
 
             },
             {
-                path : "manage-foods",
+                path: "manage-foods",
                 element:
-                <PrivateRoute>
-                    <MangeFood></MangeFood>
-                </PrivateRoute>
+                    <PrivateRoute>
+                        <MangeFood></MangeFood>
+                    </PrivateRoute>
             },
             {
-                path : "food-requests",
+                path: "food-requests",
                 element:
-                <PrivateRoute>
-                    <RequestFood></RequestFood>
-                </PrivateRoute>
+                    <PrivateRoute>
+                        <RequestFood></RequestFood>
+                    </PrivateRoute>
 
+            },
+            {
+                path: "/food-details/:id",
+                element:
+                    <PrivateRoute>
+                        <FoodDetails></FoodDetails>
+                    </PrivateRoute>
             },
             {
                 path: "*", // Catch-all for any undefined routes

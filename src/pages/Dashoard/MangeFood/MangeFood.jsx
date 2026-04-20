@@ -145,7 +145,7 @@ const MyFoods = () => {
         <section className="relative bg-yellow-50 overflow-hidden py-15">
             {/* Floating blobs */}
             <div className="absolute -top-32 -left-24 w-72 h-72 bg-yellow-300 rounded-full opacity-30 filter blur-3xl pointer-events-none"></div>
-            <div className="absolute -bottom-32 -right-24 w-96 h-96 bg-yellow-300 rounded-full opacity-25 filter blur-3xl pointer-events-none"></div>
+            <div className="absolute z-0 -bottom-32 -right-24 w-96 h-96 bg-yellow-300 rounded-full opacity-25 filter blur-3xl pointer-events-none"></div>
 
 
             <div className=" relative min-h-screen z-10 py-10 px-4">

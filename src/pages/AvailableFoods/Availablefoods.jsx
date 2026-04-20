@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useNavigate } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/Authprovider';
 
 const AvailableFoods = () => {
@@ -186,12 +186,14 @@ const AvailableFoods = () => {
                                     </div>
 
                                     {/* View Details Button */}
-                                    <button
-                                        onClick={() => handleViewDetails(food._id)}
-                                        className="mt-auto w-full cursor-pointer bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 hover:from-yellow-500 hover:to-orange-500 text-white font-semibold py-2.5 rounded-xl shadow-md hover:shadow-lg transition duration-300 text-sm tracking-wide"
-                                    >
-                                        View Details →
-                                    </button>
+                                    <NavLink to={`/food-details/${food._id}`} className="mt-auto">
+                                        <button
+                                            className="mt-auto w-full cursor-pointer bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 hover:from-yellow-500 hover:to-orange-500 text-white font-semibold py-2.5 rounded-xl shadow-md hover:shadow-lg transition duration-300 text-sm tracking-wide"
+                                        >
+                                            View Details →
+                                        </button>
+                                    </NavLink>
+
                                 </div>
                             </div>
                         ))}
