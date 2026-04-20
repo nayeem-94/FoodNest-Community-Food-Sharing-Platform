@@ -35,7 +35,8 @@ const MyFoods = () => {
         };
 
         try {
-            const res = await fetch(`http://localhost:3000/foods/${id}`, {
+            // const res = await fetch(`http://localhost:3000/foods/${id}`, {
+            const res = await fetch(`https://foodnest-community-food-sharing-platform-hoib.onrender.com/foods/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -80,6 +81,39 @@ const MyFoods = () => {
             });
         }
     };
+
+    const handleDelete = (id) => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#ef4444", // Red for delete
+        cancelButtonColor: "#6b7280",
+        confirmButtonText: "Yes, delete it!"
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            try {
+
+            const res = await fetch(`https://foodnest-community-food-sharing-platform-hoib.onrender.com/foods/${id}`, {
+                // const res = await fetch(`http://localhost:3000/foods/${id}`, {
+                    method: "DELETE",
+                });
+                const data = await res.json();
+
+                if (data.deletedCount > 0) 
+                {
+                    Swal.fire("Deleted!", "Your food item has been removed.", "success");
+                    const remainingFoods = foods.filter(food => food._id !== id);
+                    setFoods(remainingFoods);
+                }
+            } catch (error) {
+                console.error("Delete failed:", error);
+                Swal.fire("Error!", "Could not delete the item.", "error");
+            }
+        }
+    });
+};
 
     // ── Skeleton card ─────────────────────────────────────────────────────────
     const SkeletonCard = () => (
@@ -126,8 +160,7 @@ const MyFoods = () => {
                             Total Foods Added: {foods.length}
                         </p>
                     </div>
-
-
+                    
                     {/* Table */}
                     <div className="overflow-x-auto rounded-xl border border-orange-100">
                         <table className="table w-full">
@@ -183,7 +216,7 @@ const MyFoods = () => {
                                                                 Update
                                                             </button>
 
-                                                            <button className="px-4 py-2 cursor-pointer rounded-lg bg-red-500 text-white text-sm font-semibold shadow-sm hover:bg-red-600 transition">
+                                                            <button onClick={() => handleDelete(food._id)} className="px-4 py-2 cursor-pointer rounded-lg bg-red-500 text-white text-sm font-semibold shadow-sm hover:bg-red-600 transition">
                                                                 Delete
                                                             </button>
                                                         </div>
